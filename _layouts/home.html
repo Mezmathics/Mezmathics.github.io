@@ -49,6 +49,7 @@ layout: page
           
           {% if post.preview_card %}
           <div class="card-text post-content">
+              <h1> SOMETHING </h1>
             <p>
               {% include no-linenos.html content=post.preview %}
               {{ content | markdownify | strip_html | escape }}
