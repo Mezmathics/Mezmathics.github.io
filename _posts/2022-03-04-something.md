@@ -43,9 +43,15 @@ Suppose $\mathcal G$ is an I-Map for P. We want to show that:
 $$\begin{aligned} P(X_1,X_2,...,X_n) &= \prod_{i=1}^{n} P(X_i|Pa_{X_{i}}^{\mathcal G}) \end{aligned}$$
 
 Without any loss of generality, we can assume that $X_1, X_2,...,X_n$ is a topological ordering relative to $\mathcal G$. By the chain rule of a joint distribution we have:
-$$\begin{aligned}P(X_1,X_2,...,X_n) &= \prod_{i=1}^{n}P(X_i|X_{1},...,X_{i-1})\end{aligned}$$
-Because of the topological ordering, for any $i$, $Pa_{X_i}^{\mathcal G} \subseteq \{X_{1},...,X_{i-1}\}$  and if $X_h \in \{X_{1},...,X_{i-1}\}$ then $X_h \in NonDecendants_{X_i}$. Which means $$\{X_{1},...,X_{i-1}\}=Pa_{X_i} \cup \mathbf Z_i$$
-where $\mathbf Z_i \subseteq NonDecendants_{X_i}$. So in $\mathcal G$, we have the conditional independence $(X_i \, \bot \, \mathbf Z_i \mid Pa_{X_i}^{\mathcal G})$. And by our supposition, $\mathcal G$ is an I-Map for $P$ which means this conditional independence assertions will also hold in $P$. This implies that $P(X_i|\mathbf Z_i, Pa_{X_i}^{\mathcal G}) = P(X_i| Pa_{X_i}^{\mathcal G})$ That means The distribution $P$ becomes
+
+$$\begin{aligned} P(X_1,X_2,...,X_n) &= \prod_{i=1}^{n}P(X_i|X_{1},...,X_{i-1}) \end{aligned}$$
+
+Because of the topological ordering, for any $i$, $Pa_{X_i}^{\mathcal G} \subseteq \{X_{1},...,X_{i-1}\}$  and if $X_h \in \{X_{1},...,X_{i-1}\}$ then $X_h \in NonDecendants_{X_i}$. Which means 
+
+$$ \{X_{1},...,X_{i-1}\}=Pa_{X_i} \cup \mathbf Z_i $$
+
+where $\mathbf Z_i \subseteq NonDecendants_{X_i}$. So in $\mathcal G$, we have the conditional independence $(X_i \, \bot \, \mathbf Z_i \mid Pa_{X_i}^{\mathcal G})$. And by our supposition, $\mathcal G$ is an I-Map for $P$ which means this conditional independence assertions will also hold in $P$. This implies that $P(X_i\mid \mathbf Z_i, Pa_{X_i}^{\mathcal G}) = P(X_i \mid Pa_{X_i}^{\mathcal G})$ That means The distribution $P$ becomes:
+
 $$\begin{aligned} P(X_1,X_2,...,X_n) &= \prod_{i=1}^{n}P(X_i|X_1,...,X_{i-1}) \\ &= \prod_{i=1}^{n}P(X_i|\mathbf Z_i,Pa_{X_i}^{\mathcal G}) \\ &= \prod_{i=1}^{n}P(X_i|Pa_{X_i}^{\mathcal G}) \end{aligned}$$
 As was to be shown.
 
@@ -60,5 +66,6 @@ Because $(X_i \, \bot\, \mathbf Y \mid  Pa_{X_i}^{\mathcal G}) \in \mathcal I(P)
 Let $X_i \in \mathcal X$, $\mathbf Y = \{Y_1,...,Y_k\} \subseteq \mathcal X$ , and  $Pa_{X_i}^{\mathcal G} = \{p_1,...,p_m\}$ (the set of parent nodes of $X_i$) such that,  $(X_i \, \bot\, \mathbf Y \mid  Pa_{X_i}^{\mathcal G})\in \mathcal I_{\mathscr l}(\mathcal G)$. 
 
 The conditional Probability Distribution of $X_i$ given $\mathbf Y$ and $Pa_{X_i}^{\mathcal G}$ can be computed as:
+
 $$\begin{aligned} P(X_i|\mathbf Y, Pa_{ X_i}^{\mathcal G}) &= \frac{P(X_i, \mathbf Y, Pa_{ X_i}^{\mathcal G})}{P(\mathbf Y, Pa_{ X_i}^{\mathcal G})} & \\ \\ &= \frac{P(X_i, \mathbf Y, Pa_{ X_i}^{\mathcal G})}{\sum_{X_i}P(X_i, \mathbf Y, Pa_{ X_i}^{\mathcal G})} & \\ \\ &= \frac{P(X_i|Pa_{X_i}^{\mathcal G})\prod_{l=1}^{m}P(p_l|Pa_{p_l}^{\mathcal G})\prod_{j=1}^{k} P( Y_j|Pa_{ Y_j}^{\mathcal G})}{\sum_{X_i}\big[P(X_i|Pa_{X_i}^{\mathcal G})\prod_{l=1}^{m}P(p_l|Pa_{p_l}^{\mathcal G})\prod_{j=1}^{k} P( Y_j|Pa_{ Y_j}^{\mathcal G})\big]} & \\ \\ &= \frac{P(X_i|Pa_{X_i}^{\mathcal G})\prod_{l=1}^{m}P(p_l|Pa_{p_l}^{\mathcal G})\prod_{j=1}^{k} P( Y_j|Pa_{ Y_j}^{\mathcal G})}{\big[\prod_{l=1}^{m}P(p_l|Pa_{p_l}^{\mathcal G})\prod_{j=1}^{k} P( Y_j|Pa_{ Y_j}^{\mathcal G})\big]\sum_{X_i}P(X_i|Pa_{X_i}^{\mathcal G})} & \\ \\ &= \frac{P(X_i|Pa_{X_i}^{\mathcal G})\prod_{l=1}^{m}P(p_l|Pa_{p_l}^{\mathcal G})\prod_{j=1}^{k} P( Y_j|Pa_{ Y_j}^{\mathcal G})}{\prod_{l=1}^{m}P(p_l|Pa_{p_l}^{\mathcal G})\prod_{j} P( Y_j|Pa_{ Y_j}^{\mathcal G})(1)} & \\ \\ &= P( X_i|Pa_{ X_i}^{\mathcal G}) & \square \end{aligned}$$
 
