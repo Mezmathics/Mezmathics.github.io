@@ -53,6 +53,7 @@ $$ \{X_{1},...,X_{i-1}\}=Pa_{X_i} \cup \mathbf Z_i $$
 where $\mathbf Z_i \subseteq NonDecendants_{X_i}$. So in $\mathcal G$, we have the conditional independence $(X_i \, \bot \, \mathbf Z_i \mid Pa_{X_i}^{\mathcal G})$. And by our supposition, $\mathcal G$ is an I-Map for $P$ which means this conditional independence assertions will also hold in $P$. This implies that $P(X_i\mid \mathbf Z_i, Pa_{X_i}^{\mathcal G}) = P(X_i \mid Pa_{X_i}^{\mathcal G})$ That means The distribution $P$ becomes:
 
 $$\begin{aligned} P(X_1,X_2,...,X_n) &= \prod_{i=1}^{n}P(X_i|X_1,...,X_{i-1}) \\ &= \prod_{i=1}^{n}P(X_i|\mathbf Z_i,Pa_{X_i}^{\mathcal G}) \\ &= \prod_{i=1}^{n}P(X_i|Pa_{X_i}^{\mathcal G}) \end{aligned}$$
+
 As was to be shown.
 
 Conversely, suppose $P$ can be factorized according to $\mathcal G$. we want to show that $\mathcal G$ is an I-Map for $P$. That is, we want to show that,
